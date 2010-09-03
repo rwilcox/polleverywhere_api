@@ -1,6 +1,7 @@
 require 'cgi'
 require 'net/http'
 require 'net/https'
+require 'json'
 
 class User
   
@@ -14,7 +15,8 @@ class User
   
 private
   def parse_response(response)
-    puts response.body
+    # TODO: error handling for when this returns something bad
+    JSON.parse(response.body)
   end
 
   def send_request(path, method, our_url=nil)
