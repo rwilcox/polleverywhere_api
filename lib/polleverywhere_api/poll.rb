@@ -23,8 +23,11 @@ class Poll
     parse_response( send_request("free_text_polls/#{self.permalink}", :json) )["keyword"]
   end
 
-  def vote(vote)
-    
+  def vote(keyword, vote)
+    vote_encoded = CGI.escape(vote)
+    puts "sending: " + "interpret.json?response=#{keyword}+#{vote_encoded}"
+    response= send_request("interpret.json?response=#{keyword}+#{vote_encoded}", nil)
+    puts response #.body
   end
 
   def username
