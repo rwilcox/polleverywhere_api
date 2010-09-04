@@ -17,11 +17,21 @@ class Poll
     self.type = type
   end
 
+  def poll_detail_url
+    "free_text_polls/#{self.permalink}"
+  end
+
   # right now we assume this is a free text poll, because that's all I need
   # but a multiple choice poll will have an options attribute in the json
   def keywords
-    parse_response( send_request("free_text_polls/#{self.permalink}", :json) )["keyword"]
+    parse_response( send_request(self.poll_detail_url, :json) )["keyword"]
   end
+
+
+  def results
+    parse_response( send_request(self.poll_detail_url, :json) )["results"]
+  end
+
 
   def vote(keyword, vote)
     vote_encoded = CGI.escape(vote)
