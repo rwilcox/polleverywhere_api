@@ -12,7 +12,11 @@ A Ruby wrapper for the PollEverywhere API
 
 == SYNOPSIS:
 
-  FIX (code sample of usage)
+>>> u = User.new
+>>> u.username = "email@example.com"
+>>> u.password = "password"
+>>> u.polls
+
 
 == REQUIREMENTS:
 

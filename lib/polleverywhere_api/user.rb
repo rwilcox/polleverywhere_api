@@ -5,6 +5,7 @@ require 'json'
 
 require 'poll'
 
+# A user object. A user has_many polls
 class User
   
   attr_accessor :username
@@ -17,6 +18,8 @@ class User
   end
 
 
+private
+
   def construct_poll_object_for(current_object)
     parent = nil
     parent = current_object["free_text_poll"]
@@ -28,8 +31,6 @@ class User
         parent["type"] )
   end
 
-
-private
   def parse_response(response)
     # TODO: error handling for when this returns something bad
     JSON.parse(response.body)
