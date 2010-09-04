@@ -6,9 +6,9 @@ $:.unshift(path_to_code) unless
   $:.include?(path_to_code) || $:.include?(File.expand_path(path_to_code))
 
 require 'gem_dependancies'
+require 'required'
 
-require 'polleverywhere_api/user'
-
+required 'lib/polleverywhere_api' #relative to root
 
 module PolleverywhereApi
   VERSION = '0.0.1'
