@@ -6,8 +6,10 @@ module ConnectionMixin
   end
 
   def send_request(path, method, our_url=nil)
-    our_url ||= "https://www.polleverywhere.com/#{path}.#{method.to_s}"
-    #puts "Sending request to #{our_url}" if self.debug
+    str_method = ""
+    str_method = ".#{method.to_s}" if method
+    our_url ||= "http://www.polleverywhere.com/#{path}#{str_method}"
+    puts "Sending request to #{our_url}" #if self.debug
     url = URI.parse(our_url)
     http_connection = Net::HTTP.new(url.host,url.port)
 
@@ -20,6 +22,7 @@ module ConnectionMixin
       case response
       when Net::HTTPSuccess then response
       when Net::HTTPRedirection then send_request(path, method, response["location"])
+      else throw "response was #{response}"
       end
     end
   end
