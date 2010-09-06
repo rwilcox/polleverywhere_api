@@ -19,6 +19,13 @@ class User
     object_graph.collect { |current_object| construct_poll_object_for(current_object) }
   end
 
+  def find_poll_by_permalink(permalink)
+    #so to avoid trouble, we get all the polls, look through them for the permalink
+    # and return the user the object. (I don't think we want the user pulling down
+    # polls they don't have access to?)
+
+    self.polls.detect{ |poll| poll.permalink == permalink }
+  end
 
 private
 
