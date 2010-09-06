@@ -3,6 +3,7 @@ require File.dirname(__FILE__) + '/test_helper.rb'
 class TestUser < Test::Unit::TestCase
 
   def setup
+    TestHelper::neuter_internet
   end
   
   def test_polls
@@ -20,7 +21,7 @@ EOF
     FakeWeb.register_uri(:get, "http://www.polleverywhere.com/my/polls.json",
         :body => body)
 
-    u = User.new
+    u = PollEverywhere::User.new
     assert_not_nil u.polls.select{ |poll| poll.title == "What is your name, dude?" }
   end
 end

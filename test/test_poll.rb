@@ -2,8 +2,12 @@ require File.dirname(__FILE__) + '/test_helper.rb'
 
 class TestPoll < Test::Unit::TestCase
  
+ 
+
  context "free text polls" do
    setup do
+     TestHelper::neuter_internet
+
      body =<<END
 
 {"type":"free_text_poll","web_enabled":false,"mobile_site":"http://poll4.com",
@@ -34,15 +38,15 @@ class TestPoll < Test::Unit::TestCase
   "state":"opened","participation_verb":"participate",
   "permalink":"ODk5Nzk3MzIy"}
 END
-     FakeWeb.register_uri(:get, "http://www.polleverywhere.com/free_text_polls/ODk5Nzk3MzIy",
+     FakeWeb.register_uri(:any, "http://ryan%40example.com:password@www.polleverywhere.com/free_text_polls/ODk5Nzk3MzIy.json",
          :body => body)
    end
 
    should "be able to get keywords from a poll" do
-     u = User.new
+     u = PollEverywhere::User.new
      u.username = "ryan@example.com"
      u.password = "password"
-     poll = Poll.new(u, "ODk5Nzk3MzIy", nil, nil, nil, "free_text_poll")
+     poll = PollEverywhere::Poll.new(u, "ODk5Nzk3MzIy", nil, nil, nil, "free_text_poll")
      res = poll.results[0]
 
      assert_equal( "about 16 hours ago", res["created_at"] )
