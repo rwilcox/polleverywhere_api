@@ -6,6 +6,6 @@ class TestPolleverywhereApi < Test::Unit::TestCase
   end
   
   def test_truth
-    assert true
+    
   end
 end

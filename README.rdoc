@@ -1,6 +1,6 @@
 = polleverywhere_api
 
-* http://github.com/#{github_username}/#{project_name}
+* http://github.com/rwilcox/polleverywhere_api
 
 == DESCRIPTION:
 
@@ -20,11 +20,13 @@ A Ruby wrapper for the PollEverywhere API
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
+* See lib/gem_dependancies. But, the shortlist: required, json_pure.
+
+Testing requires shoulda and fakeweb. Yes, we have tests
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+* sudo gem install
 
 == LICENSE:
 
