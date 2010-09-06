@@ -8,7 +8,7 @@ $:.unshift(path_to_code) unless
 require 'gem_dependancies'
 require 'required'
 
-required 'lib/polleverywhere_api' #relative to root
+required( File.dirname(__FILE__) + '/polleverywhere_api/' )
 
 module PolleverywhereApi
   VERSION = '0.0.1'
