@@ -3,9 +3,16 @@ Manifest.txt
 PostInstall.txt
 README.rdoc
 Rakefile
+lib/gem_dependancies.rb
 lib/polleverywhere_api.rb
+lib/polleverywhere_api/connection_mixin.rb
+lib/polleverywhere_api/poll.rb
+lib/polleverywhere_api/user.rb
+polleverywhere_api.gemspec
 script/console
 script/destroy
 script/generate
 test/test_helper.rb
+test/test_poll.rb
 test/test_polleverywhere_api.rb
+test/test_user.rb
