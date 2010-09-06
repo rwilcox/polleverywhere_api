@@ -12,7 +12,6 @@ Hoe.plugin :newgem
 # Run 'rake -T' to see list of generated tasks (from gem root directory)
 $hoe = Hoe.spec 'polleverywhere_api' do
   self.developer 'Ryan Wilcox', 'rwilcox@wilcoxd.com'
-  self.post_install_message = 'PostInstall.txt' # TODO remove if post-install message not required
   #self.rubyforge_name       = self.name # TODO this is default value
   self.extra_deps         = [['json_pure','>= 1.4.6'], ['required', '>= 0.1.3']]
 
