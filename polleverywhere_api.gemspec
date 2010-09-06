@@ -10,9 +10,8 @@ Gem::Specification.new do |s|
   s.description = %q{A Ruby wrapper for the PollEverywhere API}
   s.email = ["rwilcox@wilcoxd.com"]
   s.extra_rdoc_files = ["History.txt", "Manifest.txt", "PostInstall.txt"]
-  s.files = ["History.txt", "Manifest.txt", "PostInstall.txt", "README.rdoc", "Rakefile", "lib/polleverywhere_api.rb", "script/console", "script/destroy", "script/generate", "test/test_helper.rb", "test/test_polleverywhere_api.rb", "test/test_poll.rb", "test/test_user.rb"]
+  s.files = ["History.txt", "Manifest.txt", "PostInstall.txt", "README.rdoc", "Rakefile", "lib/gem_dependancies.rb", "lib/polleverywhere_api.rb", "lib/polleverywhere_api/connection_mixin.rb", "lib/polleverywhere_api/poll.rb", "lib/polleverywhere_api/user.rb", "polleverywhere_api.gemspec", "script/console", "script/destroy", "script/generate", "test/test_helper.rb", "test/test_poll.rb", "test/test_polleverywhere_api.rb", "test/test_user.rb"]
   s.homepage = %q{http://github.com/rwilcox/polleverywhere_api}
-  s.post_install_message = %q{PostInstall.txt}
   s.rdoc_options = ["--main", "README.rdoc"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{polleverywhere_api}
