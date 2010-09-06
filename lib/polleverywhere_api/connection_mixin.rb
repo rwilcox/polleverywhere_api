@@ -1,3 +1,4 @@
+module PollEverywhere
 module ConnectionMixin
 
   def parse_response(response)
@@ -27,4 +28,5 @@ module ConnectionMixin
     end
   end
 
+end
 end

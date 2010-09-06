@@ -4,6 +4,7 @@ require 'net/https'
 require 'json'
 
 
+module PollEverywhere
 # A user object. A user has_many polls
 class User
   
@@ -33,3 +34,5 @@ private
   end
 
 end
+
+end #Module

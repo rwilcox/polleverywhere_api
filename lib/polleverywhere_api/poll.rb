@@ -1,3 +1,5 @@
+module PollEverywhere
+  
 class Poll
   attr_accessor :permalink
   attr_accessor :result_count
@@ -53,3 +55,4 @@ private
     
   end
 end
+end #module PollEverywhere
