@@ -10,7 +10,7 @@ module ConnectionMixin
     str_method = ""
     str_method = ".#{method.to_s}" if method
     our_url ||= "http://www.polleverywhere.com/#{path}#{str_method}"
-    puts "Sending request to #{our_url}" #if self.debug
+    #puts "Sending request to #{our_url}" #if self.debug
     url = URI.parse(our_url)
     http_connection = Net::HTTP.new(url.host,url.port)
 
