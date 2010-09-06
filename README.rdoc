@@ -12,10 +12,10 @@ A Ruby wrapper for the PollEverywhere API
 
 == SYNOPSIS:
 
->>> u = User.new
->>> u.username = "email@example.com"
->>> u.password = "password"
->>> u.polls
+  >>> u = PollEverywhere::User.new
+  >>> u.username = "email@example.com"
+  >>> u.password = "password"
+  >>> u.polls
 
 
 == REQUIREMENTS:
