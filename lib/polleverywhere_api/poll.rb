@@ -37,9 +37,7 @@ class Poll
 
   def vote(keyword, vote)
     vote_encoded = CGI.escape(vote)
-    puts "sending: " + "interpret.json?response=#{keyword}+#{vote_encoded}"
-    response= send_request("interpret.json?response=#{keyword}+#{vote_encoded}", nil)
-    puts response #.body
+    parse_response( send_request("interpret.json?response=#{keyword}+#{vote_encoded}", nil) )
   end
 
   def username
