@@ -23,12 +23,15 @@ class Poll
     "free_text_polls/#{self.permalink}"
   end
 
-  # right now we assume this is a free text poll, because that's all I need
-  # but a multiple choice poll will have an options attribute in the json
-  def keywords
+
+  def keyword
     parse_response( send_request(self.poll_detail_url, :json) )["keyword"]
   end
 
+  # same as keyword, but returns an Array (for API consistency)
+  def keywords
+    [self.keyword]
+  end
 
   def results
     parse_response( send_request(self.poll_detail_url, :json) )["results"]
