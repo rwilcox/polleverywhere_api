@@ -9,6 +9,7 @@ class MultipleChoicePoll < Poll
   end
 
   # will return an Array of the keywords (aka choices) you have for this poll
+  # vote for one by sending that list item into the vote method
   def keywords
     sef.results.collect {|current_object| current_object["keyword"] }
   end
