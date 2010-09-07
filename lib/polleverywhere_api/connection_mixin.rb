@@ -14,7 +14,8 @@ module ConnectionMixin
     url = URI.parse(our_url)
     http_connection = Net::HTTP.new(url.host,url.port)
 
-    req = Net::HTTP::Get.new(url.path)
+    req = Net::HTTP::Get.new(url.request_uri)
+    #puts "url.(full) path is: #{url.request_uri}"
     http_connection.use_ssl = (our_url =~ /https:/)
     req.basic_auth self.username, self.password
 
