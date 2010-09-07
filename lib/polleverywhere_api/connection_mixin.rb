@@ -1,9 +1,22 @@
 module PollEverywhere
+  
+  class LoginException < Exception
+  end
+
 module ConnectionMixin
 
   def parse_response(response)
-    # TODO: error handling for when this returns something bad
-    JSON.parse(response.body)
+    begin
+      JSON.parse(response.body)
+    rescue JSON::ParserError => e
+      # ok, something odd happened. Let's run through the possibilities...
+      # 1) they didn't log in properly. Look for <a href="/login">
+      if response.body =~ /<a href="\/login">/
+        raise LoginException
+      end
+
+      # TODO: some other checks here?
+    end
   end
 
   def send_request(path, method, our_url=nil)
