@@ -17,6 +17,7 @@ class PledgePoll < Poll
     [self.keyword]
   end
 
+
   # amount should be resilient, aka pass 10.00, $10.00 in and it doesn't care
   def vote(keyword, ammount)
     # TODO: for this vote method and the normal aka free text poll
