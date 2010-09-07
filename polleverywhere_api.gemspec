@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{polleverywhere_api}
-  s.version = "0.0.4"
+  s.version = "0.0.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ryan Wilcox"]
-  s.date = %q{2010-09-06}
+  s.date = %q{2010-09-07}
   s.description = %q{A Ruby wrapper for the PollEverywhere API}
   s.email = ["rwilcox@wilcoxd.com"]
   s.extra_rdoc_files = ["History.txt", "Manifest.txt", "PostInstall.txt"]
