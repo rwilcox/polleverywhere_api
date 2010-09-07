@@ -46,6 +46,11 @@ private
           parent["state"], parent["title"], parent["type"])
     end
 
+    if current_object["pledge_poll"]
+      res = PledgePoll.new(self, parent["permalink"], parent["results_count"],
+          parent["state"], parent["title"], parent["type"])
+    end
+
     res
   end
 
