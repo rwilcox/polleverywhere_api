@@ -35,9 +35,18 @@ private
     parent = current_object["multiple_choice_poll"] unless parent
     parent = current_object["pledge_poll"] unless parent
 
-    # TODO: care what kind of poll we have. Right now I don't. WD-rpw 09-03-2010
-    Poll.new( self, parent["permalink"], parent["results_count"], parent["state"], parent["title"],
-        parent["type"] )
+    res = nil
+    if current_object["free_text_poll"]
+      res = Poll.new( self, parent["permalink"], parent["results_count"], parent["state"], parent["title"],
+          parent["type"] )
+    end
+
+    if current_object["multiple_choice_poll"]
+      res = MultipleChoicePoll.new(self, parent["permalink"], parent["results_count"],
+          parent["state"], parent["title"], parent["type"])
+    end
+
+    res
   end
 
 end
