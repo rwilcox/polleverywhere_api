@@ -3,6 +3,9 @@ module PollEverywhere
   class LoginException < Exception
   end
 
+  class UnknownException < Exception
+  end
+
 module ConnectionMixin
 
   def parse_response(response)
@@ -13,6 +16,8 @@ module ConnectionMixin
       # 1) they didn't log in properly. Look for <a href="/login">
       if response.body =~ /<a href="\/login">/
         raise LoginException
+      else
+        raise UnknowException, "The following was not valid JSON: #{response.body}"
       end
 
       # TODO: some other checks here?
