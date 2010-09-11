@@ -1,5 +1,3 @@
-require 'poll'
-
 module PollEverywhere
   
 class MultipleChoicePoll < Poll
