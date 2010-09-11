@@ -11,5 +11,5 @@ require 'required'
 required( File.dirname(__FILE__) + '/polleverywhere_api/' )
 
 module PolleverywhereApi
-  VERSION = '0.0.5'
+  VERSION = '0.0.6'
 end
