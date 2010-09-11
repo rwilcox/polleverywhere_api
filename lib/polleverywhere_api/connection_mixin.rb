@@ -24,7 +24,7 @@ module ConnectionMixin
     end
   end
 
-  def send_request(path, method, our_url=nil)
+  def send_request(path, method, our_url=nil, needs_auth=true)
     str_method = ""
     str_method = ".#{method.to_s}" if method
     our_url ||= "http://www.polleverywhere.com/#{path}#{str_method}"
@@ -35,13 +35,16 @@ module ConnectionMixin
     req = Net::HTTP::Get.new(url.request_uri)
     #puts "url.(full) path is: #{url.request_uri}"
     http_connection.use_ssl = (our_url =~ /https:/)
-    req.basic_auth self.username, self.password
+
+    if needs_auth
+      req.basic_auth self.username, self.password
+    end
 
     http_connection.start do |http|
       response = http.request(req)
       case response
       when Net::HTTPSuccess then response
-      when Net::HTTPRedirection then send_request(path, method, response["location"])
+      when Net::HTTPRedirection then send_request(path, method, response["location"], needs_auth)
       else throw "response was #{response}"
       end
     end
